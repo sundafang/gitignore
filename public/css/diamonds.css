@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:Microsoft YaHei;
+}
+body{
+    background:#cbe2d0;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: red;
+}
+.top{
+    width:100%;
+    height: 40px;
+    background: #32353e;
+    position: relative;
+}
+.top_left{
+    float: left;
+    height:40px;
+    width:40px;
+}
+.top_center{
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.top_right{
+    height: 20px;
+    width: 60px;
+    background:#fc9843;
+    font-size:12px;
+    line-height:18px;
+    text-align: center;
+    color: #ffffff;
+    position: absolute;
+    right:3%;
+    top:10px;
+    border-radius: 160px;
+}
