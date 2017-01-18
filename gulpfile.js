@@ -1,3 +1,5 @@
+
+//引入gulp模块
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var minifycss = require('gulp-minify-css');
@@ -28,7 +30,7 @@ gulp.task('uglify',function () {
 gulp.task('nodemon',function (nm) {
     var flag = false;
     return nodemon({
-        script:'./server.js'
+        script:'./app.js'
     }).on('start',function () {
         if(!flag){
             nm();
@@ -39,7 +41,7 @@ gulp.task('nodemon',function (nm) {
 gulp.task('browserSync',['nodemon'],function () {
     browserSync.init({
         proxy:{
-            target:'http://127.0.0.1:16914'
+            target:'https://192.168.199.178:8080'
         },
         files:['*'],
         port:9888,
@@ -52,4 +54,8 @@ gulp.task('watcher',['browserSync','stylus'],function () {
     gulp.watch('./public/css/**/*.css').on('change',function () {
         reload();
     })
+});
+//创建一个default任务
+gulp.task('default',function () {
+    console.log('this is default')
 });

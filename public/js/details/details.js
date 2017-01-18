@@ -40,7 +40,8 @@ $(".video_center").on("touchstart",function () {
     var settime = setInterval(function () {
         document.getElementById("video_01").pause();
         $(".video_center").css("display","block");
-        $(".bomb_box").css("display","block");
+        $(".bxc").css("display","block");
+        $(".bomb_box").css("display","block")
         //console.log($(".bomb_box").css())
     },20000);
 })

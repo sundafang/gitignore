@@ -5,7 +5,12 @@
 var $banner_carousel_li = $(".banner_carousel_li");
 //获取轮播容器
 var $banner_ul = $(".banner_ul");
-
+// //获取屏幕宽度
+// var wd = $(window).width();
+// //获取轮播个数
+// var lg = $(slider).length;
+// //计算容器宽度
+// var allWd = wd * lg;
 //获取所有的点
 var $banner_punctuation_li = $(".banner_punctuation_li");
 //获取屏幕宽度
@@ -114,5 +119,6 @@ var n=0;
                 $(".banner_punctuation_li").eq(n).addClass("banner_active");
             })
         }
+//滑动事件
 
 

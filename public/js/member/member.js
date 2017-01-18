@@ -34,3 +34,23 @@ $(".end_en").on("touchstart",function () {
     }
 })
 
+$(".footer_li").on("touchstart",function () {
+    var c=$(this).index();
+    //console.log(c)
+    if (c==1){
+        $(".boc").css("display","block");
+        $(".bomb_box").css("width","60%");
+    }
+})
+$(".cue_img").on("touchstart",function () {
+    var a= $("input[name='sex']:checked").val();
+    $(".payment_input02").val(a);
+    console.log(a)
+
+    if ($("input[name='sex']:checked").val()){
+        sessionStorage.setItem("data",$("input[name='sex']:checked").val());
+    }else{
+        alert("失败");
+    }
+})
+
