@@ -122,3 +122,28 @@ var n=0;
 //滑动事件
 
 
+$(".top_right").on("touchstart",function () {
+    $(".bxc").css("display","block");
+    $(".bomb_box").css("display","block")
+})
+
+//上传缓存到cookie
+$(".cue_img").on("touchstart",function () {
+    var a= $("input[name='sex']:checked").val();
+    $(".payment_input02").val(a);
+    console.log(a)
+
+    if ($("input[name='sex']:checked").val()){
+        sessionStorage.setItem("data",$("input[name='sex']:checked").val());
+    }else{
+        alert("失败");
+    }
+})
+
+//点击获取触点坐标。
+
+
+
+
+
+

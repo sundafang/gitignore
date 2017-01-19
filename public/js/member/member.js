@@ -54,3 +54,15 @@ $(".cue_img").on("touchstart",function () {
     }
 })
 
+$(".type_lright").on("touchstart",function () {
+    $(".boc").css("display","block");
+    $(".bomb_box").css("width","60%");
+})
+
+$(".top_right").on("touchstart",function () {
+    $(".boc").css("display","block");
+    $(".bomb_box").css("width","60%");
+})
+
+
+

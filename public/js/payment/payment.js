@@ -12,16 +12,19 @@ function fn() {
 
 //ajax数据提交
 $(".payment_button").on("touchstart",function () {
-    var Order = $(".payment_input").val();
-    var Money = $(".payment_input02").val();
-    console.log(Order,Money)
+    var fName = $(".payment_input").val();
+    var uName = $(".payment_input02").val();
+    console.log(fName,uName)
     $.ajax({
-        url:"  ",//支付请求地址
-        dataType:"json",//返回数据格式
-        data:{
-            Order: Order,
-            Money:Money
-        },
+        type:"post",
+        url:"http://192.168.199.178:8080/mnoooVideo/pay/video",//支付请求地址
+        timeout:320,
+        dataType:"jsonp",//返回数据格式
+        jsonpCallback:"jsonp",
+        data: {
+            fName: fName,
+            uName:uName
+            },
         success:function (request) {//支付成功后返回的数据处理
             //根据返回值进行状态显示
             if (request=="True"){

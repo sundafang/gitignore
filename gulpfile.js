@@ -41,7 +41,7 @@ gulp.task('nodemon',function (nm) {
 gulp.task('browserSync',['nodemon'],function () {
     browserSync.init({
         proxy:{
-            target:'https://192.168.199.178:8080'
+            target:'http://192.168.199.178:8080/mnoooVideo/'
         },
         files:['*'],
         port:9888,

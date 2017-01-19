@@ -11,7 +11,7 @@ app.use('/public',express.static(pulicPath));
 
 
 
-app.listen(8080,function () {
-    console.log('server run at port 16914')
+app.listen(16914,function () {
+    console.log('http://192.168.199.178:8080/mnoooVideo/')
 })
 module.exports=app;

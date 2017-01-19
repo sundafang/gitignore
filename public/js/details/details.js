@@ -45,10 +45,14 @@ $(".video_center").on("touchstart",function () {
         //console.log($(".bomb_box").css())
     },20000);
 })
+
 $(".cue_img").on("touchstart",function () {
    var a= $("input[name='sex']:checked").val();
+    var c = $(".video_source").attr('src');
+    console.log(c)
+    var b= c.match(/ $/g);
     $(".payment_input02").val(a);
-    console.log(a)
+
 
     if ($("input[name='sex']:checked").val()){
         sessionStorage.setItem("data",$("input[name='sex']:checked").val());
@@ -56,3 +60,11 @@ $(".cue_img").on("touchstart",function () {
         alert("失败");
     }
 })
+
+$(".top_right").on("touchstart",function () {
+    $(".bxc").css("display","block");
+    $(".bomb_box").css("display","block")
+})
+
+
+
