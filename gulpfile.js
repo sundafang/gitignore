@@ -44,12 +44,12 @@ gulp.task('browserSync',['nodemon'],function () {
             target:'http://192.168.199.178:8080/mnoooVideo/'
         },
         files:['*'],
-        port:9888,
+        port:8080,
         open:false
     })
 });
 //动态监听
-gulp.task('watcher',['browserSync','stylus'],function () {
+gulp.task('wacther',['browserSync','stylus'],function () {
     gulp.watch('./stylus/**/*.styl',['stylus']);
     gulp.watch('./public/css/**/*.css').on('change',function () {
         reload();

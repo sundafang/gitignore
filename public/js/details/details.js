@@ -34,6 +34,12 @@ $(".end_en").on("touchstart",function () {
 $(".video_center").on("touchstart",function () {
     $(this).css("display","none");
     document.getElementById("video_01").play();
+    var c = $(".video_source").attr('src');
+    console.log(c)
+    var n1= c.lastIndexOf("/")+1;
+    var n2= c.lastIndexOf(".");
+    var a= c.substring(n1,n2)
+    console.log(a)
 
 
     var video_01=document.getElementById("video_01")
@@ -41,18 +47,12 @@ $(".video_center").on("touchstart",function () {
         document.getElementById("video_01").pause();
         $(".video_center").css("display","block");
         $(".bxc").css("display","block");
-        $(".bomb_box").css("display","block")
-        //console.log($(".bomb_box").css())
+        $(".bomb_box").css("display","block");
     },20000);
 })
 
 $(".cue_img").on("touchstart",function () {
    var a= $("input[name='sex']:checked").val();
-    var c = $(".video_source").attr('src');
-    console.log(c)
-    var b= c.match(/ $/g);
-    $(".payment_input02").val(a);
-
 
     if ($("input[name='sex']:checked").val()){
         sessionStorage.setItem("data",$("input[name='sex']:checked").val());
