@@ -2,9 +2,9 @@
  * Created by Administrator on 2017/1/17 0017.
  */
  var msg=document.getElementById("payment_input02")
+    console.log(msg)
 function fn() {
     var msg = sessionStorage.getItem("data");
-   // console.log(msg)
     if(msg){
         $(".payment_input02").val(msg)
     }
@@ -19,8 +19,8 @@ $(".payment_button").on("touchstart",function () {
         type:"post",
         url:"http://192.168.199.178:8080/mnoooVideo/pay/video",//支付请求地址
         timeout:320,
-        dataType:"jsonp",//返回数据格式
-        jsonpCallback:"jsonp",
+        dataType:"json",//返回数据格式
+        jsonpCallback:"json",
         data: {
             fName: fName,
             uName:uName

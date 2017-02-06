@@ -32,4 +32,7 @@ $(".end_en").on("touchstart",function () {
         $(".img07").css("display","block");
         $(".img08").css("display","none");
     }
+});
+$(".account_submit").on('touchstar',function () {
+    alert("成功")
 })

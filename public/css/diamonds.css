@@ -89,11 +89,13 @@ a{
     height: 100%;
     display: flex;
     padding-left: 2%;
+    margin-bottom: 10px;
 }
 .box_01{
     width: 30%;
     flex: 1;
     margin-right: 2%;
+    position: relative;
 
 }
 .box_01 img{
@@ -107,4 +109,34 @@ a{
     white-space: nowrap;
     text-overflow: ellipsis;
 
+}
+.list_triangle{
+    position: absolute;
+    top:0;
+    width:0;
+    height:0;
+    border-left:0px solid transparent;
+    border-right:48px solid transparent;
+    border-top:40px solid #ff8f33;
+}
+.list_tilt{
+    font-size: 12px;
+    color: #ffffff;
+    position: absolute;
+    top:-35px;
+    left:2px;
+    width: 24px;
+    -webkit-transform: rotate(51deg);
+    -moz-transform: rotate(51deg);
+    -ms-transform: rotate(51deg);
+    -o-transform: rotate(51deg);
+    transform: rotate(-38deg);
+}
+.tail{
+    height: 40px;
+    width: 100%;
+    border-top: 1px solid #cccccc;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
 }

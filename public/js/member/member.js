@@ -42,6 +42,8 @@ $(".footer_li").on("touchstart",function () {
         $(".bomb_box").css("width","60%");
     }
 })
+
+//上传数据缓存
 $(".cue_img").on("touchstart",function () {
     var a= $("input[name='sex']:checked").val();
     $(".payment_input02").val(a);
@@ -53,6 +55,20 @@ $(".cue_img").on("touchstart",function () {
         alert("失败");
     }
 })
+
+$(".cue_img01").on("touchstart",function () {
+    var b= $("input[name='sex']:checked").val();
+    $(".payment_input02").val(b);
+    console.log(b)
+
+    if (b){
+        sessionStorage.setItem("data",b);
+        //console.log("信息已保存到data字段中成功")
+    }else{
+        alert("失败");
+    }
+})
+
 
 $(".type_lright").on("touchstart",function () {
     $(".boc").css("display","block");

@@ -37,7 +37,7 @@ $(".video_center").on("touchstart",function () {
 
 
     var c = $(".video_source").attr('src');
-    //console.log(c)
+   // console.log(c)
     var n1= c.lastIndexOf("/")+1;
     var n2= c.lastIndexOf(".");
     var videoname= c.substring(n1,n2)
@@ -50,47 +50,70 @@ $(".video_center").on("touchstart",function () {
         data:{
             videoname:videoname
         },
-        success:function (request) {//支付成功后返回的数据处理
+        success:function (request) {//视频名称传递成功后返回的数据处理
             //根据返回值进行状态显示
             if (request=="True"){
-                alert("支付成功！");
+                alert("成功！");
                 //  $(".success").css("display","block");
             }else{
-                alert("支付失败！")
+                alert("失败！")
             }
             // $(".error").css("display","block");
         }
     })
 
 
-    // var video_01=document.getElementById("video_01")
-    // var settime = setInterval(function () {
-    //     document.getElementById("video_01").pause();
-    //     $(".video_center").css("display","block");
-    //     $(".bxc").css("display","block");
-    //     $(".bomb_box").css("display","block");
-    // },20000);
+    $.ajax(
+        {
+            type:"post",
+            timeout:500,
+            url:"http://192.168.199.178:8080/mnoooVideo/pay/video",
+            dataType:"jsonp",
+            jsonpCallback:"jsonp",
+            data:{
+                yes:""
+            },
+            success:function (request) {//视频名称传递成功后返回的数据处理
+                //根据返回值进行状态显示
+                if (request=="yes"){
+                    alert("成功！");
+                    //清除视频监听
+
+                }else{
+                    alert("失败！")
+                    //不清除视频监听
+                }
+
+            }
+        }
+    )
+
 })
 
 //视频监听
 var video_01=document.getElementById("video_01");
-video_01.addEventListener('loadedmetadata',function () {
-    tol=0;
-    tol= video_01.duration;
-    console.log(tol)
-    video_01.addEventListener("timeupdate",function () {
-        var currentTime= video_01.currentTime;
-        console.log(currentTime)
-        if (currentTime<=20){
-            document.getElementById("video_01").play();
-            $(".video_center").css("display","none");
-        }else {
-            document.getElementById("video_01").pause();
-            $(".bxc").css("display","block");
-            $(".bomb_box").css("display","block");
-        }
-    })
-});
+    video_01.addEventListener("loadedmetadata",function () {
+        tol=0;
+        tol= video_01.duration;
+        //console.log(tol)
+        video_01.addEventListener("timeupdate",function () {
+            var currentTime= video_01.currentTime;
+           // console.log(currentTime)
+            if (currentTime<=20){
+                //document.getElementById("video_01").play();
+                $(".video_center").css("display","none");
+            }else {
+                document.getElementById("video_01").pause();
+                $(".bxc").css("display","block");
+                $(".bomb_box").css("display","block");
+            }
+        })
+    });
+
+
+
+//清除监听
+
 
 $(".cue_img").on("touchstart",function () {
    var a= $("input[name='sex']:checked").val();
@@ -107,6 +130,13 @@ $(".top_right").on("touchstart",function () {
     $(".bomb_box").css("display","block");
 
 })
+
+
+
+
+
+
+
 
 
 
