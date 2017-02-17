@@ -1,135 +1,244 @@
-$(".end_en").on("touchstart",function () {
-    var a= $(this).index();
-    // console.log(a);
-    if (a!==0){
-        $(".img01").css("display","block");
-        $(".img02").css("display","none");
-    }else{
-        $(".img01").css("display","none");
-        $(".img02").css("display","block");
-    }
-    if (a!==1){
-        $(".img03").css("display","none");
-        $(".img04").css("display","block");
-    }else{
-        $(".img03").css("display","block");
-        $(".img04").css("display","none");
-    }
-    if (a!==2){
-        $(".img05").css("display","none");
-        $(".img06").css("display","block");
-    }else{
-        $(".img05").css("display","block");
-        $(".img06").css("display","none");
-    }
-    if (a!==3){
-        $(".img07").css("display","none");
-        $(".img08").css("display","block");
-    }else{
-        $(".img07").css("display","block");
-        $(".img08").css("display","none");
-    }
-})
+$(function () {
+    var name=sessionStorage.getItem("name")
 
-$(".video_center").on("touchstart",function () {
-    $(this).css("display","none");
-    document.getElementById("video_01").play();
+    if(name=="02_011"){
+        var getsrc="../../public/img/poster/qita.JPG";
+        var getvid="../../public/img/video.ogg/qita.mp4";
+        $('#list_img_src').attr('src',getsrc);
+        $("#video_source").attr('src',getvid);
+        /!*var getsrc=$(".video_img_src").attr('src');*!/
+
+        //console.log(getsrc)
+    }else if (name=="02_012"){
+        var video=document.getElementById("video");
+        //var sroure=document.getElementById("video_source")
+        var vid  ='<div class="video_img">';
+        vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/加勒比(9).JPG">';
+        vid +='</div>';
+        vid +='<video class="video_01" id="video_01" controls preload="auto" >';
+        vid +='<source class="video_source" id="video_source" src="../../public/img/video.ogg/加勒比(9).mp4">';
+        vid +='</video>';
+        vid +='<div class="video_center">';
+        vid +='<img src="../../public/img/homepage/paly.png">';
+        vid +='</div>';
+        vid +='</div>';
+        video.innerHTML=vid;
+        //console.log(video)
+    }else if(name=="02_013"){
+        var video=document.getElementById("video");
+        //var sroure=document.getElementById("video_source")
+        var vid  ='<div class="video_img">';
+        vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/人妻.JPG">';
+        vid +='</div>';
+        vid +='<video class="video_01" id="video_01" controls preload="auto" >';
+        vid +='<source class="video_source" id="video_source" src="../../public/img/video.ogg/人妻3.mp4">';
+        vid +='</video>';
+        vid +='<div class="video_center">';
+        vid +='<img src="../../public/img/homepage/paly.png">';
+        vid +='</div>';
+        vid +='</div>';
+        video.innerHTML=vid;
+    }else if(name=="02_05"){
+        var video=document.getElementById("video");
+        //var sroure=document.getElementById("video_source")
+        var vid  ='<div class="video_img">';
+        vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/人妻(3).JPG">';
+        vid +='</div>';
+        vid +='<video class="video_01" id="video_01" controls preload="auto" >';
+        vid +='<source class="video_source" id="video_source" src="../../public/img/video.ogg/人妻(3).mp4">';
+        vid +='</video>';
+        vid +='<div class="video_center">';
+        vid +='<img src="../../public/img/homepage/paly.png">';
+        vid +='</div>';
+        vid +='</div>';
+        video.innerHTML=vid;
+    }else if(name=="02_06"){
+        var video=document.getElementById("video");
+        //var sroure=document.getElementById("video_source")
+        var vid  ='<div class="video_img">';
+        vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/制服.JPG">';
+        vid +='</div>';
+        vid +='<video class="video_01" id="video_01" controls preload="auto" >';
+        vid +='<source class="video_source" id="video_source" src="../../public/img/video.ogg/制服.mp4">';
+        vid +='</video>';
+        vid +='<div class="video_center">';
+        vid +='<img src="../../public/img/homepage/paly.png">';
+        vid +='</div>';
+        vid +='</div>';
+        video.innerHTML=vid;
+    }else if(name=="02_07"){
+        var video=document.getElementById("video");
+        //var sroure=document.getElementById("video_source")
+        var vid  ='<div class="video_img">';
+        vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/制服丝袜.JPG">';
+        vid +='</div>';
+        vid +='<video class="video_01" id="video_01" controls preload="auto" >';
+        vid +='<source class="video_source" id="video_source" src="../../public/img/video.ogg/制服丝袜.mp4">';
+        vid +='</video>';
+        vid +='<div class="video_center">';
+        vid +='<img src="../../public/img/homepage/paly.png">';
+        vid +='</div>';
+        vid +='</div>';
+        video.innerHTML=vid;
+    }
 
 
-    var c = $(".video_source").attr('src');
-   // console.log(c)
-    var n1= c.lastIndexOf("/")+1;
-    var n2= c.lastIndexOf(".");
-    var videoname= c.substring(n1,n2)
-    $.ajax({
-        type:"post",
-        timeout:320,
-        url:"http://192.168.199.178:8080/mnoooVideo/pay/video",
-        dataType:"json",
-        jsonpCallback:"json",
-        data:{
-            videoname:videoname
-        },
-        success:function (request) {//视频名称传递成功后返回的数据处理
-            //根据返回值进行状态显示
-            if (request=="True"){
-                alert("成功！");
-                //  $(".success").css("display","block");
-            }else{
-                alert("失败！")
-            }
-            // $(".error").css("display","block");
+    $(".end_en").on("touchstart", function () {
+        var a = $(this).index();
+        // console.log(a);
+        if (a !== 0) {
+            $(".img01").css("display", "block");
+            $(".img02").css("display", "none");
+        } else {
+            $(".img01").css("display", "none");
+            $(".img02").css("display", "block");
         }
+        if (a !== 1) {
+            $(".img03").css("display", "none");
+            $(".img04").css("display", "block");
+        } else {
+            $(".img03").css("display", "block");
+            $(".img04").css("display", "none");
+        }
+        if (a !== 2) {
+            $(".img05").css("display", "none");
+            $(".img06").css("display", "block");
+        } else {
+            $(".img05").css("display", "block");
+            $(".img06").css("display", "none");
+        }
+        if (a !== 3) {
+            $(".img07").css("display", "none");
+            $(".img08").css("display", "block");
+        } else {
+            $(".img07").css("display", "block");
+            $(".img08").css("display", "none");
+        }
+    });
+        //视频监听
+         var myVideo =  document.getElementById('video_01');//获取video元素
+         var Video= myVideo.addEventListener("timeupdate",sum)
+         //设置播放点
+
+         function sum(){
+         var  currentTime =  myVideo.currentTime;//获取当前播放时间
+
+         //console.log(currentTime);//在调试器中打印
+         if (currentTime>20){
+             myVideo.currentTime=0;
+         document.getElementById("video_01").pause();
+         //console.log(currentTime);//在调试器中打印
+         }}
+
+
+        //定时器
+        $(".video_center").on("touchstart",function () {
+            var settime=setInterval(fn,20000);
+            //获取cookie值
+            $(this).css("display","none");
+            $(".video_img").css("display","none");
+            $(".video_01").show();
+            document.getElementById("video_01").play();
+            var c = $(".video_source").attr('src');
+            //console.log(c)
+            //ajax数据提交
+            var n1= c.lastIndexOf("/")+1;
+            var n2= c.lastIndexOf(".");
+            var fName= c.substring(n1,n2);
+            //console.log(videoname)
+            //console.log(url)
+            $.ajax({
+                type:"post",
+                url:"/pay/check",//检查请求视频是否付费地址
+                timeout:320,
+                dataType:"json",//返回数据格式
+                jsoncallback :"json",
+                data: {
+                    fName:fName
+                },
+                success:function (request) {//成功后返回的数据处理
+                    //根据返回值进行状态显示
+                    //console.log(request);
+                    if (request=="true"){
+                        $(".success").show();
+                        clearInterval(settime);
+                        // removeEvent删除事件
+                         myVideo.removeEventListener("timeupdate",sum);
+                    }else if(request=="wait"){
+                        $(".fail").show();
+                    }else{
+                        $(".being_paid").show();
+                    }
+                }
+            })
+        })
+
+        function fn() {
+            $(".video_center").css("display","block");
+            $(".video_img").css("display","block");
+            $(".video_01").hide();
+            $(".bxc").css("display","block");
+            $(".bomb_box").css("display","block");
+            document.getElementById("video_01").pause();
+        }
+
+        $(".cue_img").on("touchstart",function () {
+            var a= $("input[name='sex']:checked").val();
+
+            if ($("input[name='sex']:checked").val()){
+                sessionStorage.setItem("data",$("input[name='sex']:checked").val());
+            }else{
+                alert("失败");
+            }
+        })
+
+        $(".top_right").on("touchstart",function () {
+            $(".bxc").css("display","block");
+            $(".bomb_box").css("display","block");
+
+        })
+
+
+
+    $(".error").on("touchstart",function () {
+
+        $(".bxc").css("display","none");
+        $(".video_center").css("display","block");
+        $(".video_img").css("display","block");
+        $(".video_01").css("display","none");
+    });
+
+    $(".cue_img").on("touchstart",function () {
+        var c = $(".video_source").attr('src');
+        //console.log(c)
+        //ajax数据提交
+        var n1= c.lastIndexOf("/")+1;
+        var n2= c.lastIndexOf(".");
+        var fName= c.substring(n1,n2);
+        window.location.href="../../pay/video?fName="+fName;
+        //console.log(window.location.href)
+        $.ajax({
+            type:"POST",
+            url:"../../pay/video?fName="+fName,//视频付费提交地址
+            timeout:320,
+            data: {
+                fName:fName
+            }
+        });
+    });
+    $(".success_x").on("touchstart", function () {
+        $(".success").hide();
+    });
+    $(".fail_x").on("touchstart", function () {
+        $(".fail").hide();
+    });
+    $(".being_x").on("touchstart", function () {
+        $(".being_paid").hide();
     })
 
 
-    $.ajax(
-        {
-            type:"post",
-            timeout:500,
-            url:"http://192.168.199.178:8080/mnoooVideo/pay/video",
-            dataType:"jsonp",
-            jsonpCallback:"jsonp",
-            data:{
-                yes:""
-            },
-            success:function (request) {//视频名称传递成功后返回的数据处理
-                //根据返回值进行状态显示
-                if (request=="yes"){
-                    alert("成功！");
-                    //清除视频监听
 
-                }else{
-                    alert("失败！")
-                    //不清除视频监听
-                }
-
-            }
-        }
-    )
-
-})
-
-//视频监听
-var video_01=document.getElementById("video_01");
-    video_01.addEventListener("loadedmetadata",function () {
-        tol=0;
-        tol= video_01.duration;
-        //console.log(tol)
-        video_01.addEventListener("timeupdate",function () {
-            var currentTime= video_01.currentTime;
-           // console.log(currentTime)
-            if (currentTime<=20){
-                //document.getElementById("video_01").play();
-                $(".video_center").css("display","none");
-            }else {
-                document.getElementById("video_01").pause();
-                $(".bxc").css("display","block");
-                $(".bomb_box").css("display","block");
-            }
-        })
-    });
-
-
-
-//清除监听
-
-
-$(".cue_img").on("touchstart",function () {
-   var a= $("input[name='sex']:checked").val();
-
-    if ($("input[name='sex']:checked").val()){
-        sessionStorage.setItem("data",$("input[name='sex']:checked").val());
-    }else{
-        alert("失败");
-    }
-})
-
-$(".top_right").on("touchstart",function () {
-    $(".bxc").css("display","block");
-    $(".bomb_box").css("display","block");
-
-})
+});
 
 
 
@@ -140,45 +249,6 @@ $(".top_right").on("touchstart",function () {
 
 
 
-
-/*
-var  myVideo = document.getElementById('video_01')//获取video元素
-    ,tol = 0  //总时长
-    ;
-myVideo.addEventListener("loadedmetadata", function(){
-    tol =  myVideo.duration;//获取总时长
-});//</p> <p>播放
-function play(){
-    myVideo.play();
-}//</p> <p>暂停
-function pause(){
-    myVideo.pause();
-}//</p>  <p>播放时间点更新时
-myVideo.addEventListener("timeupdate", function(){
-    var  currentTime =  myVideo.currentTime;//获取当前播放时间
-
-    if (currentTime<=20){
-            document.getElementById("video_01").play();
-        }else {
-            document.getElementById("video_01").pause();
-            $(".video_center").css("display","block");
-            $(".bxc").css("display","block");
-            $(".bomb_box").css("display","block");
-        }
-
-   // console.log(currentTime);//在调试器中打印
-});//</p>  <p>设置播放点
-function playBySeconds(num){
-    myVideo.currentTime =  num;
-}//</p> <p>音量改变时
-myVideo.addEventListener("volumechange",  function(){
-    var volume =  myVideo.volume;//获取当前音量
-    console.log(volume);//在调试器中打印
-});//</p>  <p>设置音量
-function setVol(num){
-    myVideo.volume =  num;
-}
-*/
 
 
 
