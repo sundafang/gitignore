@@ -3,7 +3,7 @@ $(function () {
 
     if(name=="02_011"){
         var getsrc="../../public/img/poster/qita.JPG";
-        var getvid="../../public/img/video.ogg/qita.mp4";
+        var getvid="../../public/img/video.ogg/加勒比(7).mp4";
         $('#list_img_src').attr('src',getsrc);
         $("#video_source").attr('src',getvid);
         /!*var getsrc=$(".video_img_src").attr('src');*!/
@@ -11,7 +11,6 @@ $(function () {
         //console.log(getsrc)
     }else if (name=="02_012"){
         var video=document.getElementById("video");
-        //var sroure=document.getElementById("video_source")
         var vid  ='<div class="video_img">';
         vid += '<img class="video_img_src" id="video_img_src" src="../../public/img/poster/加勒比(9).JPG">';
         vid +='</div>';
@@ -115,7 +114,7 @@ $(function () {
             $(".img08").css("display", "none");
         }
     });
-        //视频监听
+       /*//视频监听
          var myVideo =  document.getElementById('video_01');//获取video元素
          var Video= myVideo.addEventListener("timeupdate",sum)
          //设置播放点
@@ -129,7 +128,7 @@ $(function () {
          document.getElementById("video_01").pause();
          //console.log(currentTime);//在调试器中打印
          }}
-
+*/
 
         //定时器
         $(".video_center").on("touchstart",function () {
@@ -145,11 +144,9 @@ $(function () {
             var n1= c.lastIndexOf("/")+1;
             var n2= c.lastIndexOf(".");
             var fName= c.substring(n1,n2);
-            //console.log(videoname)
-            //console.log(url)
             $.ajax({
                 type:"post",
-                url:"/pay/check",//检查请求视频是否付费地址
+                url:"../../pay/check",//检查请求视频是否付费地址
                 timeout:320,
                 dataType:"json",//返回数据格式
                 jsoncallback :"json",
@@ -158,20 +155,29 @@ $(function () {
                 },
                 success:function (request) {//成功后返回的数据处理
                     //根据返回值进行状态显示
-                    //console.log(request);
-                    if (request=="true"){
+                    console.log(request)
+                    console.log(typeof (request));
+                    if (request==true){
                         $(".success").show();
                         clearInterval(settime);
                         // removeEvent删除事件
-                         myVideo.removeEventListener("timeupdate",sum);
-                    }else if(request=="wait"){
-                        $(".fail").show();
+                         //myVideo.removeEventListener("timeupdate",sum);
+                        //获取当前时间
+
+
+                    }else if(request==false){
+                        //$(".being_paid").show();
+                        //$(".success").show();
+                        //$(".fail").show();
+                        var settime=setInterval(fn,20000);
+                        //clearInterval(settime);
+
                     }else{
-                        $(".being_paid").show();
+                        $(".fail").show();
                     }
                 }
             })
-        })
+        });
 
         function fn() {
             $(".video_center").css("display","block");
@@ -182,21 +188,11 @@ $(function () {
             document.getElementById("video_01").pause();
         }
 
-        $(".cue_img").on("touchstart",function () {
-            var a= $("input[name='sex']:checked").val();
-
-            if ($("input[name='sex']:checked").val()){
-                sessionStorage.setItem("data",$("input[name='sex']:checked").val());
-            }else{
-                alert("失败");
-            }
-        })
-
         $(".top_right").on("touchstart",function () {
             $(".bxc").css("display","block");
             $(".bomb_box").css("display","block");
 
-        })
+        });
 
 
 
@@ -209,6 +205,8 @@ $(function () {
     });
 
     $(".cue_img").on("touchstart",function () {
+        var myid=document.cookie.split("=")[1];
+        console.log(myid)
         var c = $(".video_source").attr('src');
         //console.log(c)
         //ajax数据提交
@@ -222,7 +220,8 @@ $(function () {
             url:"../../pay/video?fName="+fName,//视频付费提交地址
             timeout:320,
             data: {
-                fName:fName
+                fName:fName,
+                id:myid
             }
         });
     });
@@ -234,10 +233,15 @@ $(function () {
     });
     $(".being_x").on("touchstart", function () {
         $(".being_paid").hide();
+    });
+
+    $(".prompt_a").on("touchstart",function () {
+        $(".bxc").show();
+        $(".bomb_box").show();
     })
 
-
-
+    var username=document.cookie.split("=")[1];
+    console.log(username)
 });
 
 

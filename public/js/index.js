@@ -1,8 +1,26 @@
 
 
 $(function () {
+    var myid=document.cookie.split("=")[1];
+    console.log(myid)
+    if (myid==undefined){
+        var myDate = new Date();//获取系统当前时间
+        var myid = myDate.getTime();     //获取完整的年份(4位,1970-????)
 
-
+        document.cookie="userName="+myid;
+        // document.cookie="userPassword="+password;
+        //console.log(document.cookie)
+        //设置cookie保存时间
+        console.log(myid);
+        function setCookie(myid) {
+            var Days = 30; //cookie 将被保存两个月
+            var exp = new Date(); //获得当前时间
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000); //换成毫秒
+            document.cookie = userName + "=" +  ";expires=" + exp.toGMTString();
+            //console.log(document.cookie);
+            //console.log(username)
+        }
+    }
 
 //获取轮播元素
 var $banner_carousel_li = $(".banner_carousel_li");
@@ -24,7 +42,7 @@ var lg = $(".banner_carousel_li").length;
 
 $(".navbar_nav_ion").on("touchstart",function (){
     var a= $(this).index()
-    console.log(a)
+    //console.log(a)
    $(".navbar_nav_ion").removeClass("active");
     $(".navbar_nav_ion").eq(a).addClass("active");
 

@@ -468,6 +468,7 @@ video{
     right: -15px;
     top: -15px;
 }
+/*
 .success{
     display: none;
     position: fixed;
@@ -498,7 +499,7 @@ video{
     border: 1px solid red;
     border-radius: 50%;
     text-align: center;
-    line-height: 20px;
+    line-height: 17px;
 }
 
 .fail{
@@ -520,7 +521,7 @@ video{
 .fail_p{
     line-height: 100px;
     text-align: center;
-    color:#000000;
+    color:#23ab67;
     font-size: 18px;
 }
 .fail_x{
@@ -556,7 +557,7 @@ video{
 .being_p{
     line-height: 100px;
     text-align: center;
-    color:#849588;
+    color:red;
     font-size: 18px;
 }
 .being_x{
@@ -572,3 +573,4 @@ video{
     text-align: center;
     line-height: 20px;
 }
+*/
