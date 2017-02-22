@@ -1,4 +1,10 @@
 $(function () {
+   /* var date = new Date();
+            n=date.getFullYear();
+            m=date.getMonth()+1;
+            d=date.getDay();
+    var b="本次活动截止日期:"+n+"年"+m+"月"+d+"日";
+    console.log(b)*/
     var name=sessionStorage.getItem("name")
 
     if(name=="02_011"){
@@ -6,8 +12,6 @@ $(function () {
         var getvid="../../public/img/video.ogg/加勒比(7).mp4";
         $('#list_img_src').attr('src',getsrc);
         $("#video_source").attr('src',getvid);
-        /!*var getsrc=$(".video_img_src").attr('src');*!/
-
         //console.log(getsrc)
     }else if (name=="02_012"){
         var video=document.getElementById("video");
@@ -114,25 +118,30 @@ $(function () {
             $(".img08").css("display", "none");
         }
     });
-       /*//视频监听
+       //视频监听
          var myVideo =  document.getElementById('video_01');//获取video元素
          var Video= myVideo.addEventListener("timeupdate",sum)
          //设置播放点
-
          function sum(){
          var  currentTime =  myVideo.currentTime;//获取当前播放时间
 
          //console.log(currentTime);//在调试器中打印
-         if (currentTime>20){
-             myVideo.currentTime=0;
-         document.getElementById("video_01").pause();
-         //console.log(currentTime);//在调试器中打印
-         }}
-*/
+         if (currentTime>=20){
+             $("#video_01").hide();
+             $(".video_img").show();
+              $(".bxc").css("display","block");
+              $(".bomb_box").css("display","block");
+              myVideo.currentTime=0;
+              document.getElementById("video_01").pause();
+              //console.log(currentTime);//在调试器中打印
+              }}
 
+    var myid=document.cookie.split("=")[1];
+        console.log(myid);
         //定时器
         $(".video_center").on("touchstart",function () {
-            var settime=setInterval(fn,20000);
+            console.log(myid);
+            //var settime=setInterval(fn,20000);
             //获取cookie值
             $(this).css("display","none");
             $(".video_img").css("display","none");
@@ -145,48 +154,30 @@ $(function () {
             var n2= c.lastIndexOf(".");
             var fName= c.substring(n1,n2);
             $.ajax({
-                type:"post",
+                type:"get",
                 url:"../../pay/check",//检查请求视频是否付费地址
                 timeout:320,
                 dataType:"json",//返回数据格式
                 jsoncallback :"json",
                 data: {
-                    fName:fName
+                    fName:fName,
+                    Nameid:myid
                 },
                 success:function (request) {//成功后返回的数据处理
                     //根据返回值进行状态显示
                     console.log(request)
                     console.log(typeof (request));
                     if (request==true){
-                        $(".success").show();
-                        clearInterval(settime);
-                        // removeEvent删除事件
-                         //myVideo.removeEventListener("timeupdate",sum);
-                        //获取当前时间
+                        myVideo.removeEventListener("timeupdate",sum); // removeEvent删除监听事件
 
-
-                    }else if(request==false){
-                        //$(".being_paid").show();
-                        //$(".success").show();
-                        //$(".fail").show();
-                        var settime=setInterval(fn,20000);
-                        //clearInterval(settime);
-
+                    }/*else if(request==false){
+                        myVideo.removeEventListener("timeupdate",sum); // removeEvent删除监听事件
                     }else{
-                        $(".fail").show();
-                    }
+                        myVideo.removeEventListener("timeupdate",sum); // removeEvent删除监听事件
+                    }*/
                 }
             })
         });
-
-        function fn() {
-            $(".video_center").css("display","block");
-            $(".video_img").css("display","block");
-            $(".video_01").hide();
-            $(".bxc").css("display","block");
-            $(".bomb_box").css("display","block");
-            document.getElementById("video_01").pause();
-        }
 
         $(".top_right").on("touchstart",function () {
             $(".bxc").css("display","block");
@@ -206,7 +197,7 @@ $(function () {
 
     $(".cue_img").on("touchstart",function () {
         var myid=document.cookie.split("=")[1];
-        console.log(myid)
+        console.log(myid);
         var c = $(".video_source").attr('src');
         //console.log(c)
         //ajax数据提交
@@ -240,8 +231,7 @@ $(function () {
         $(".bomb_box").show();
     })
 
-    var username=document.cookie.split("=")[1];
-    console.log(username)
+
 });
 
 

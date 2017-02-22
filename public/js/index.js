@@ -1,19 +1,23 @@
 
 
 $(function () {
-    var myid=document.cookie.split("=")[1];
-    console.log(myid)
-    if (myid==undefined){
-        var myDate = new Date();//获取系统当前时间
-        var myid = myDate.getTime();     //获取完整的年份(4位,1970-????)
-
-        document.cookie="userName="+myid;
-        // document.cookie="userPassword="+password;
-        //console.log(document.cookie)
-        //设置cookie保存时间
-        console.log(myid);
+    var id=document.cookie.split("=")[1];//获取cookie
+    console.log(id);
+    if (id==undefined){//判断cookie有没有  没有就设置一个
+        //js 生成uuid
+        var myid=getUuid();
+        function getUuid(){
+            var len=32;//32长度
+            var radix=16;//16进制
+            var chars='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');var uuid=[],i;radix=radix||chars.length;if(len){for(i=0;i<len;i++)uuid[i]=chars[0|Math.random()*radix];}else{var r;uuid[8]=uuid[13]=uuid[18]=uuid[23]='-';uuid[14]='4';for(i=0;i<36;i++){if(!uuid[i]){r=0|Math.random()*16;uuid[i]=chars[(i==19)?(r&0x3)|0x8:r];}}}
+            return uuid.join('');
+        }
+        //设置cookie的时间期限
+        console.log(myid)
+        var id=myid;
+        document.cookie="Nameid="+myid;
         function setCookie(myid) {
-            var Days = 30; //cookie 将被保存两个月
+            var Days = 30; //cookie 将被保存一个月
             var exp = new Date(); //获得当前时间
             exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000); //换成毫秒
             document.cookie = userName + "=" +  ";expires=" + exp.toGMTString();
@@ -21,6 +25,7 @@ $(function () {
             //console.log(username)
         }
     }
+
 
 //获取轮播元素
 var $banner_carousel_li = $(".banner_carousel_li");

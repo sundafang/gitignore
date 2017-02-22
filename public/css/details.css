@@ -24,6 +24,9 @@ a{
     width:40px;
 }
 .top_center{
+    width: 100px;
+    height:100%;
+    margin: auto;
     text-align: center;
     line-height: 40px;
     color: #ffffff;
@@ -206,7 +209,7 @@ video{
 
 .end{
     width: 100%;
-    height:38px;
+    height:32px;
     background: #000;
     position: fixed;
     bottom: 0;
@@ -217,7 +220,6 @@ video{
 .end_en{
     flex:1;
     text-align: center;
-    height:35px;
 }
 .end_img{
     width: 80%;
@@ -225,7 +227,7 @@ video{
     height:43px;
 }
 .end_img img{
-    height:100%;
+    height:92%;
     margin: auto;
 }
 .img01{

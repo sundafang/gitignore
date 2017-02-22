@@ -48,7 +48,7 @@ a{
 
 .end{
     width: 100%;
-    height:38px;
+    height:32px;
     background: #000;
     position: fixed;
     bottom: 0;
@@ -59,7 +59,6 @@ a{
 .end_en{
     flex:1;
     text-align: center;
-    height:35px;
 }
 .end_img{
     width: 80%;
@@ -67,7 +66,7 @@ a{
     height:43px;
 }
 .end_img img{
-    height:100%;
+    height:92%;
     margin: auto;
 }
 .img02{
