@@ -95,7 +95,7 @@ video{
     heigth:100px;
 }
 .prompt_center{
-    width: 80%;
+    width: 83%;
     height:35px;
     border:2px solid red;
     background:#fcfc8a;
@@ -108,21 +108,22 @@ video{
 }
 .navbar_nome{
     width:100%;
-    height:40px;
+    height:39px;
     font-size:14px;
     font-weight:bold;
     border-bottom: 1px solid #cccccc;
+    margin-bottom: 5px;
 
 }
 .navbar_nome_left{
     margin-left:4%;
-    line-height:40px;
+    line-height:30px;
     float: left;
     font-size: 12px;
 }
 .navbar_nome_right{
     margin-right:4%;
-    line-height:40px;
+    line-height:35px;
     float: right;
     color: #8b978d;
     font-size: 14px;
@@ -130,19 +131,19 @@ video{
 
 .list{
     display: flex;
-    height:65%;
+    height: 100%;
     width: 98%;
     padding-left: 2%;
     margin: auto;
-    position: relative;
-    margin-top: 5px;
-    margin-bottom: 13px;
 }
 .list_img{
     flex:1;
     width:30%;
     margin-right:2%;
     margin-bottom: 5px;
+    float: left;
+    position: relative;
+    padding-left: 1%;
 }
 .list_img img{
     width:100%;
@@ -169,22 +170,23 @@ video{
     font-size: 12px;
     color: #ffffff;
     position: absolute;
-    top:-41px;
-    left:10px;
-    -webkit-transform: rotate(51deg);
-    -moz-transform: rotate(51deg);
-    -ms-transform: rotate(51deg);
-    -o-transform: rotate(51deg);
-    transform: rotate(51deg);
+    width: 24px;
+    top:-35px;
+    left:3px;
+    -webkit-transform: rotate(-41deg);
+    -moz-transform: rotate(-41deg);
+    -ms-transform: rotate(-41deg);
+    -o-transform: rotate(-41deg);
+    transform: rotate(-41deg);
 }
 .list_vip{
     position: absolute;
-    top:0;
-    width:0;
-    height:0;
-    border-left:0px solid transparent;
-    border-right:48px solid transparent;
-    border-top:40px solid red;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 48px solid transparent;
+    border-top: 40px solid red;
 }
 .list_vip_tilt{
     font-size: 12px;
@@ -220,6 +222,9 @@ video{
 .end_en{
     flex:1;
     text-align: center;
+    width: 25%;
+    height:100%;
+    float: left;
 }
 .end_img{
     width: 80%;
@@ -307,10 +312,11 @@ video{
     color: #ffffff;
 }
 .footer{
-    height:100px;
+    height:85px;
     width:100%;
     line-height: 50px;
     text-align: center;
+    font-size: 12px;
 
 }
 .bxc{

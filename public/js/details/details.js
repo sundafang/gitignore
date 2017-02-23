@@ -5,7 +5,7 @@ $(function () {
             d=date.getDay();
     var b="本次活动截止日期:"+n+"年"+m+"月"+d+"日";
     console.log(b)*/
-    var name=sessionStorage.getItem("name")
+    var name=sessionStorage.getItem("name");
 
     if(name=="02_011"){
         var getsrc="../../public/img/poster/qita.JPG";
@@ -120,7 +120,7 @@ $(function () {
     });
        //视频监听
          var myVideo =  document.getElementById('video_01');//获取video元素
-         var Video= myVideo.addEventListener("timeupdate",sum)
+         var Video= myVideo.addEventListener("timeupdate",sum);
          //设置播放点
          function sum(){
          var  currentTime =  myVideo.currentTime;//获取当前播放时间
@@ -138,7 +138,6 @@ $(function () {
 
     var myid=document.cookie.split("=")[1];
         console.log(myid);
-        //定时器
         $(".video_center").on("touchstart",function () {
             console.log(myid);
             //var settime=setInterval(fn,20000);
@@ -167,8 +166,10 @@ $(function () {
                     //根据返回值进行状态显示
                     console.log(request)
                     console.log(typeof (request));
-                    if (request==true){
+                    if (request==true||myid!==undefined){
+
                         myVideo.removeEventListener("timeupdate",sum); // removeEvent删除监听事件
+                        $(".top_right").hide();
 
                     }/*else if(request==false){
                         myVideo.removeEventListener("timeupdate",sum); // removeEvent删除监听事件
@@ -182,7 +183,9 @@ $(function () {
         $(".top_right").on("touchstart",function () {
             $(".bxc").css("display","block");
             $(".bomb_box").css("display","block");
-
+            $("#video_01").hide();
+            $(".video_img").show();
+            document.getElementById("video_01").pause();
         });
 
 
@@ -192,7 +195,8 @@ $(function () {
         $(".bxc").css("display","none");
         $(".video_center").css("display","block");
         $(".video_img").css("display","block");
-        $(".video_01").css("display","none");
+        $(".video_01").hide();
+        document.getElementById("video_01").pause();
     });
 
     $(".cue_img").on("touchstart",function () {

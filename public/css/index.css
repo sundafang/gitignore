@@ -3,6 +3,10 @@
     padding: 0;
     font-family:Microsoft YaHei;
 }
+
+body{
+    background: #cbe2d0;
+}
 a{
     text-decoration: none;
 }
@@ -13,7 +17,7 @@ li{
     background: #cbe2d0;
     width: 100%;
     height:100%;
-    padding-top: 106px;
+    padding-top: 45px;
 }
 .top{
     width:100%;
@@ -49,8 +53,7 @@ li{
 .navbar{
     width: 100%;
     height:45px;
-    margin-bottom: 1px;
-    position: fixed;
+    margin-bottom: 11px;
     top:50px;
     z-index: 11;
     background: #cbe2d0;
@@ -149,11 +152,12 @@ li{
     flex:1;
     width:30%;
     margin-right:2%;
+    padding-left: 1%;
     margin-bottom: 5px;
+    float: left;
 }
 .list_img img{
     width: 100%;
-    height:87%;
 }
 .list_p{
     color: #b8cdbc;
@@ -178,10 +182,10 @@ li{
     top:-35px;
     left:2px;
     width: 24px;
-    -webkit-transform: rotate(51deg);
-    -moz-transform: rotate(51deg);
-    -ms-transform: rotate(51deg);
-    -o-transform: rotate(51deg);
+    -webkit-transform: rotate(-38deg);
+    -moz-transform: rotate(-38deg);
+    -ms-transform: rotate(-38deg);
+    -o-transform: rotate(-38deg);
     transform: rotate(-38deg);
 }
 .list_vip{
@@ -207,7 +211,11 @@ li{
 }
 .footer{
     width: 100%;
-    height:45px;
+    height:40px;
+    border-top:1px solid #cccccc;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
 }
 .end{
     width: 100%;
@@ -222,6 +230,9 @@ li{
 .end_en{
     flex:1;
     text-align: center;
+    float: left;
+    width: 25%;
+    height: 100%;
 }
 .end_img{
     width: 80%;
@@ -274,7 +285,7 @@ li{
     height:40px;
     width:100%;
     border-top:1px solid #cccccc;
-    line-height: 30px;
+    line-height: 40px;
     text-align: center;
     font-size: 12px;
 }
